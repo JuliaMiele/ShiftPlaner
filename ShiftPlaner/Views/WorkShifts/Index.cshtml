@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ShiftPlaner.Models.WorkShift>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Meine Schichten";
+}
+
+<h1>Meine Schichten</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">
+        Neue Schicht anlegen
+    </a>
+</p>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        Es wurden noch keine Schichten angelegt.
+    </div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Datum</th>
+                <th>Beginn</th>
+                <th>Ende</th>
+                <th>Schichttyp</th>
+                <th>Notiz</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var workShift in Model)
+            {
+                <tr>
+                    <td>@workShift.Date.ToString("dd.MM.yyyy")</td>
+                    <td>@workShift.StartTime.ToString("HH:mm")</td>
+                    <td>@workShift.EndTime.ToString("HH:mm")</td>
+                    <td>@workShift.ShiftType</td>
+                    <td>@workShift.Note</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

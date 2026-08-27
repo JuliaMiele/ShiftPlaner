@@ -1,0 +1,59 @@
+﻿@model ShiftPlaner.Models.WorkShift
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Neue Schicht";
+}
+
+<h1>Neue Schicht anlegen</h1>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly"
+         class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Date" class="form-label"></label>
+        <input asp-for="Date" type="date" class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="StartTime" class="form-label"></label>
+        <input asp-for="StartTime" type="time" class="form-control" />
+        <span asp-validation-for="StartTime" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="EndTime" class="form-label"></label>
+        <input asp-for="EndTime" type="time" class="form-control" />
+        <span asp-validation-for="EndTime" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ShiftType" class="form-label"></label>
+        <select asp-for="ShiftType" class="form-select">
+            <option value="">Bitte auswählen</option>
+            <option value="Frühschicht">Frühschicht</option>
+            <option value="Spätschicht">Spätschicht</option>
+            <option value="Nachtschicht">Nachtschicht</option>
+        </select>
+        <span asp-validation-for="ShiftType" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Note" class="form-label"></label>
+        <textarea asp-for="Note" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="Note" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Speichern
+    </button>
+
+    <a asp-action="Index" class="btn btn-secondary">
+        Abbrechen
+    </a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
