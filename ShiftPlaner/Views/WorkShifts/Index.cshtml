@@ -46,7 +46,11 @@ else
                            asp-route-id="@workShift.Id"
                            class="btn btn-sm btn-outline-primary">
                             Bearbeiten
-                        </a>
+                        </a><a asp-action="Delete"
+                             asp-route-id="@workShift.Id"
+                             class="btn btn-sm btn-outline-danger">
+                                               Löschen
+                            </a>
                     </td>
                 </tr>
             }

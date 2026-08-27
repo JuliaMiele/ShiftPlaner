@@ -78,5 +78,35 @@ namespace ShiftPlaner.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            WorkShift? workShift = await _context.WorkShifts.FindAsync(id);
+
+            if (workShift == null)
+            {
+                return NotFound();
+            }
+
+            return View(workShift);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            WorkShift? workShift = await _context.WorkShifts.FindAsync(id);
+
+            if (workShift == null)
+            {
+                return NotFound();
+            }
+
+            _context.WorkShifts.Remove(workShift);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
