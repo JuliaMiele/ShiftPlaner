@@ -44,5 +44,39 @@ namespace ShiftPlaner.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            WorkShift? workShift = await _context.WorkShifts.FindAsync(id);
+
+            if (workShift == null)
+            {
+                return NotFound();
+            }
+
+            return View(workShift);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, WorkShift workShift)
+        {
+            if (id != workShift.Id)
+            {
+                return NotFound();
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(workShift);
+            }
+
+            _context.WorkShifts.Update(workShift);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

@@ -29,6 +29,7 @@ else
                 <th>Ende</th>
                 <th>Schichttyp</th>
                 <th>Notiz</th>
+                <th>Aktionen</th>
             </tr>
         </thead>
         <tbody>
@@ -40,6 +41,13 @@ else
                     <td>@workShift.EndTime.ToString("HH:mm")</td>
                     <td>@workShift.ShiftType</td>
                     <td>@workShift.Note</td>
+                    <td>
+                        <a asp-action="Edit"
+                           asp-route-id="@workShift.Id"
+                           class="btn btn-sm btn-outline-primary">
+                            Bearbeiten
+                        </a>
+                    </td>
                 </tr>
             }
         </tbody>
