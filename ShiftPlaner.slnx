@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="ShiftPlaner.Tests/ShiftPlaner.Tests.csproj" Id="311e4adc-c081-48bb-bfe8-7dd30b97b198" />
   <Project Path="ShiftPlaner/ShiftPlaner.csproj" />
 </Solution>
