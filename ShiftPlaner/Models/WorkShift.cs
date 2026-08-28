@@ -22,5 +22,21 @@ namespace ShiftPlaner.Models
         [Display(Name ="Notiz")]
         public string? Note { get; set; }
 
+        [Display(Name = "Arbeitsdauer")]
+        public TimeSpan Duration
+        {
+            get
+            {
+                TimeSpan duration = EndTime - StartTime;
+
+                if (duration < TimeSpan.Zero)
+                {
+                    duration += TimeSpan.FromDays(1);
+                }
+
+                return duration;
+            }
+        }
+
     }
 }

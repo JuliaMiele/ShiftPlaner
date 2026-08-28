@@ -28,6 +28,7 @@ else
                 <th>Beginn</th>
                 <th>Ende</th>
                 <th>Schichttyp</th>
+                <th>Arbeitsdauer</th>
                 <th>Notiz</th>
                 <th>Aktionen</th>
             </tr>
@@ -40,6 +41,10 @@ else
                     <td>@workShift.StartTime.ToString("HH:mm")</td>
                     <td>@workShift.EndTime.ToString("HH:mm")</td>
                     <td>@workShift.ShiftType</td>
+                    <td>
+                        @((int)workShift.Duration.TotalHours) Std.
+                        @workShift.Duration.Minutes Min.
+                    </td>
                     <td>@workShift.Note</td>
                     <td>
                         <a asp-action="Edit"
