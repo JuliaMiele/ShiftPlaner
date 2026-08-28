@@ -39,6 +39,8 @@ Anwendungsentwicklung.
 - HTML
 - Bootstrap
 - Git und GitHub
+- xUnit
+	
 
 ## Projekt lokal starten
 
@@ -50,3 +52,12 @@ cd ShiftPlaner/ShiftPlaner
 dotnet restore
 dotnet ef database update
 dotnet run
+```
+
+## Tests ausführen
+
+Die Arbeitszeitberechnung wird durch automatisierte Tests für normale Tagesschichten und Nachschichten über Mitternacht gesprüft.
+
+```bash
+dotnet test
+```	
