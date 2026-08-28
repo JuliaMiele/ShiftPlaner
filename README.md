@@ -1,36 +1,52 @@
 # Shift Planner
-Eine ASP.NET-Core-Webanwendung zur Verwaltung persönlicher Arbeitsschichten.
+
+Eine ASP.NET-Core-Webanwendung zur Verwaltung persönlicher
+Arbeitsschichten.
+
+## Vorschau
+
+![Schichtübersicht](ShiftPlaner/wwwroot/images/shift-overview.png)
 
 ## Motivation
+
 Durch meine Berufserfahrung im öffentlichen Nahverkehr kenne ich die
 Herausforderungen wechselnder Arbeitszeiten. Dieses Projekt entsteht
 im Rahmen meiner Umschulung zur Fachinformatikerin für
 Anwendungsentwicklung.
 
 ## Funktionen
+
 - Arbeitsschichten anlegen
 - Datum, Beginn und Ende erfassen
 - Schichttyp auswählen
 - optionale Notizen speichern
 - Schichten chronologisch anzeigen
+- vorhandene Schichten bearbeiten
+- Schichten mit Sicherheitsabfrage löschen
+- Arbeitsdauer automatisch berechnen
+- Nachtschichten über Mitternacht berücksichtigen
 - dauerhafte Speicherung in einer SQLite-Datenbank
-- Validierung der Formulareingaben
+- Formulareingaben validieren
 
 ## Technologien
+
 - C#
 - .NET 10
 - ASP.NET Core MVC
 - Entity Framework Core
 - SQLite
 - Razor
-- HTML und Bootstrap
+- HTML
+- Bootstrap
+- Git und GitHub
 
-## Aktueller Stand
-Die Grundfunktionen zum Anlegen & Anzeigen von Schichten sind
-fertig. Bearbeiten, Löschen & eine Berechnung der Arbeitszeit
-folgen.
+## Projekt lokal starten
 
-## Datenschutz
+Voraussetzung ist das .NET 10 SDK.
 
-Lokale Datenbankdateien & persönliche Testdaten werden nicht im
-Repository veröffentlicht.
+```bash
+git clone DEINE-REPOSITORY-ADRESSE
+cd ShiftPlaner/ShiftPlaner
+dotnet restore
+dotnet ef database update
+dotnet run
