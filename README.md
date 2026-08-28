@@ -61,3 +61,20 @@ Die Arbeitszeitberechnung wird durch automatisierte Tests für normale Tagesschi
 ```bash
 dotnet test
 ```	
+
+## Datenschutz
+
+Die Anwendung ist aktuell ausschließlich für die lokale Nutzung
+vorgesehen. Eingegebene Schichtdaten werden in einer lokalen
+SQLite-Datenbank gespeichert und nicht an externe Dienste übertragen.
+
+Die Datenbankdatei ist über `.gitignore` vom Git-Repository
+ausgeschlossen. Dadurch werden persönliche Schicht- und Testdaten
+nicht auf GitHub veröffentlicht.
+
+Der in dieser README verwendete Screenshot enthält ausschließlich
+fiktive Beispieldaten.
+
+Vor einem produktiven oder öffentlich erreichbaren Einsatz wären
+zusätzliche Maßnahmen erforderlich, insbesondere Authentifizierung,
+Zugriffsschutz und ein Datenschutzkonzept.
